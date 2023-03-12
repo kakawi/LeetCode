@@ -6,12 +6,6 @@ import java.util.Map;
 
 public class Linked_List_Cycle_II_142 {
 
-  public static void main(String[] args) {
-    final Linked_List_Cycle_II_142 solution = new Linked_List_Cycle_II_142();
-    final ListNode listNode = ListNode.generateListWithCycle(new int[]{3, 2, 0, -4}, 1);
-    solution.detectCycle(listNode);
-  }
-
   /**
    * Solution with Map
    */
@@ -41,10 +35,14 @@ public class Linked_List_Cycle_II_142 {
       slow = slow.next;
       fast = fast.next.next;
       // the loop exists
-      if (slow == fast) break;
+      if (slow == fast) {
+        break;
+      }
     }
     // it really reached the end
-    if (fast == null || fast.next == null) return null;
+    if (fast == null || fast.next == null) {
+      return null;
+    }
 
     // finding the beginning of the cycle
     while (head != slow) {

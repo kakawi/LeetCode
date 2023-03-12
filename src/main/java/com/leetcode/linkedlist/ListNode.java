@@ -1,5 +1,7 @@
 package com.leetcode.linkedlist;
 
+import java.util.Objects;
+
 public class ListNode {
 
   public int val;
@@ -14,28 +16,27 @@ public class ListNode {
     this.next = next;
   }
 
-  public static ListNode generateListOfNodes(int... values) {
-    ListNode prev = null;
-    for (int i = values.length - 1; i >= 0; i--) {
-      prev = new ListNode(values[i], prev);
+  @Override
+  public boolean equals(final Object o) {
+    if (this == o) {
+      return true;
     }
-    return prev;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    final ListNode listNode = (ListNode) o;
+    return val == listNode.val;
   }
 
-  public static ListNode generateListWithCycle(int[] values, int cycleIndex) {
-    ListNode prev = null;
-    ListNode cycleNode = null;
-    ListNode tail = null;
-    for (int i = values.length - 1; i >= 0; i--) {
-      prev = new ListNode(values[i], prev);
-      if (i == values.length - 1) {
-        tail = prev;
-      }
-      if (i == cycleIndex) {
-        cycleNode = prev;
-      }
-    }
-    tail.next = cycleNode;
-    return prev;
+  @Override
+  public int hashCode() {
+    return Objects.hash(val);
+  }
+
+  @Override
+  public String toString() {
+    return "ListNode{" +
+        "val=" + val +
+        '}';
   }
 }
