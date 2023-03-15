@@ -1,4 +1,4 @@
-package com.leetcode.slidingwindow;
+package com.leetcode.slidingwindow.medium;
 
 /**
  * Ref: <a href="https://leetcode.com/problems/longest-repeating-character-replacement">424. Longest Repeating Character Replacement</a>

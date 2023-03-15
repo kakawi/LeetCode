@@ -1,7 +1,9 @@
-package com.leetcode.slidingwindow;
+package com.leetcode.slidingwindow.medium;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.leetcode.slidingwindow.medium.LongestRepeatingCharacterReplacement_424;
+import com.leetcode.slidingwindow.medium.LongestRepeatingCharacterReplacement_424_Impl;
 import org.junit.jupiter.api.Test;
 
 class LongestRepeatingCharacterReplacement_424Test {

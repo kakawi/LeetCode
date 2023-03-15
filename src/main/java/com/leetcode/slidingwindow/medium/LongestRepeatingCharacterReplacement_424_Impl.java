@@ -1,4 +1,4 @@
-package com.leetcode.slidingwindow;
+package com.leetcode.slidingwindow.medium;
 
 public class LongestRepeatingCharacterReplacement_424_Impl implements LongestRepeatingCharacterReplacement_424 {
 

@@ -1,4 +1,4 @@
-package com.leetcode.slidingwindow;
+package com.leetcode.slidingwindow.medium;
 
 import java.util.ArrayList;
 import java.util.List;
