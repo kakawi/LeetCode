@@ -4,31 +4,13 @@ import com.leetcode.linkedlist.ListNode;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Linked_List_Cycle_II_142 {
-
-  /**
-   * Solution with Map
-   */
-  public ListNode detectCycle(ListNode head) {
-    if (head == null) {
-      return null;
-    }
-    Map<ListNode, Boolean> map = new HashMap<>();
-
-    while (head.next != null) {
-      if (map.getOrDefault(head, false)) {
-        return head;
-      }
-      map.put(head, true);
-      head = head.next;
-    }
-    return null;
-  }
+public class LinkedListCycleII_142_2Jumps implements LinkedListCycleII_142 {
 
   /**
    * Solution with slow and fast pointers
    */
-  public ListNode detectCycle2(ListNode head) {
+  @Override
+  public ListNode detectCycle(ListNode head) {
     ListNode slow = head;
     ListNode fast = head;
     while (fast != null && fast.next != null) {
