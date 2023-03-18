@@ -2,7 +2,10 @@ package com.leetcode.linkedlist.easy;
 
 import com.leetcode.linkedlist.ListNode;
 
-public class MergeTwoSortedLists_21_DummyValue implements MergeTwoSortedLists_21 {
+/**
+ * Dummy value
+ */
+public class MergeTwoSortedLists_21_Base implements MergeTwoSortedLists_21 {
 
   @Override
   public ListNode mergeTwoLists(ListNode list1, ListNode list2) {

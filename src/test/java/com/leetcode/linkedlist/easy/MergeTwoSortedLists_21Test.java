@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class MergeTwoSortedLists_21Test {
 
-  private final MergeTwoSortedLists_21 solution = new MergeTwoSortedLists_21_DummyValue();
+  private final MergeTwoSortedLists_21 solution = new MergeTwoSortedLists_21_Base();
 
   @Test
   void mergeTwoLists_example1() {
