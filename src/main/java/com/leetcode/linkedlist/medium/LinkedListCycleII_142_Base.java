@@ -1,10 +1,8 @@
 package com.leetcode.linkedlist.medium;
 
 import com.leetcode.linkedlist.ListNode;
-import java.util.HashMap;
-import java.util.Map;
 
-public class LinkedListCycleII_142_2Jumps implements LinkedListCycleII_142 {
+public class LinkedListCycleII_142_Base implements LinkedListCycleII_142 {
 
   /**
    * Solution with slow and fast pointers
@@ -21,8 +19,8 @@ public class LinkedListCycleII_142_2Jumps implements LinkedListCycleII_142 {
         break;
       }
     }
-    // it really reached the end
-    if (fast == null || fast.next == null) {
+    // double check that loop was ended because FAST reached the end
+    if (slow != fast) {
       return null;
     }
 

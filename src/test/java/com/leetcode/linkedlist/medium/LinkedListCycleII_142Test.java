@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class LinkedListCycleII_142Test {
 
-  private final LinkedListCycleII_142 solution = new LinkedListCycleII_142_2Jumps();
+  private final LinkedListCycleII_142 solution = new LinkedListCycleII_142_Base();
 
   @Test
   void detectCycle_example1() {
