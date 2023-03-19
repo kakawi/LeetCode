@@ -3,12 +3,12 @@ package com.leetcode.binarysearchtree.medium;
 import com.leetcode.binarysearchtree.TreeNode;
 import java.util.Stack;
 
-public class Validate_Binary_Search_Tree_98 {
+public class ValidateBinarySearchTree_98_Impl implements ValidateBinarySearchTree_98 {
 
-  public static void main(String[] args) {
-    final Validate_Binary_Search_Tree_98 solution = new Validate_Binary_Search_Tree_98();
-  }
-
+  /**
+   * InOrder traversal + check prevValue
+   */
+  @Override
   public boolean isValidBST(TreeNode root) {
     if (root == null) {
       return true;
@@ -23,7 +23,7 @@ public class Validate_Binary_Search_Tree_98 {
         root = root.left;
       }
       root = stack.pop();
-      if (root.val <= prevValue) {
+      if (prevValue >= root.val) {
         return false;
       }
       prevValue = root.val;
@@ -33,5 +33,3 @@ public class Validate_Binary_Search_Tree_98 {
     return true;
   }
 }
-
-
