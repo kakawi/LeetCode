@@ -3,29 +3,31 @@ package com.leetcode.slidingwindow.medium;
 public class LongestRepeatingCharacterReplacement_424_Impl implements LongestRepeatingCharacterReplacement_424 {
 
   @Override
-  /**
-   * MostFreqLetter is kinda tricky concept. It is a counter for the most frequent letter that we met in the whole string.
-   */
   public int characterReplacement(final String s, final int k) {
-    int[] freq = new int[26];
-    int mostFreqLetter = 0;
-    int left = 0;
-    int max = 0;
+    int[] frequency = new int[26];
+    int biggestFrequency = 0; // at the moment
+    int maxSubstring = 0;
+    int leftBorder = 0;
 
-    for (int right = 0; right < s.length(); right++) {
-      final int currentCharFreq = ++freq[s.charAt(right) - 'A'];
-      mostFreqLetter = Math.max(mostFreqLetter, currentCharFreq);
+    for (int rightBorder = 0; rightBorder < s.length(); rightBorder++) {
+      final char c = s.charAt(rightBorder);
+      final int charFrequency = ++frequency[getIndex(c)];
+      biggestFrequency = Math.max(biggestFrequency, charFrequency);
 
-      final int currentSubstringLength = right - left + 1;
-      int lettersToChange = currentSubstringLength - mostFreqLetter;
+      final int currentSubstringLength = rightBorder - leftBorder + 1;
+      final int lettersToChange = currentSubstringLength - biggestFrequency;
       if (lettersToChange > k) {
-        freq[s.charAt(left) - 'A']--;
-        left++;
+        frequency[getIndex(s.charAt(leftBorder))]--;
+        leftBorder++;
       } else {
-        max = Math.max(max, currentSubstringLength);
+        maxSubstring = Math.max(maxSubstring, currentSubstringLength);
       }
     }
 
-    return max;
+    return maxSubstring;
+  }
+
+  private static int getIndex(char c) {
+    return c - 'A';
   }
 }
