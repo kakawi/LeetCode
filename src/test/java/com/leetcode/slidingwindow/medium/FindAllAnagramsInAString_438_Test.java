@@ -1,5 +1,6 @@
 package com.leetcode.slidingwindow.medium;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.leetcode.slidingwindow.medium.FindAllAnagramsInAString_438;
@@ -24,7 +25,7 @@ class FindAllAnagramsInAString_438_Test {
     final List<Integer> result = solution.findAnagrams(s, p);
 
     // then
-    assertTrue(expected.containsAll(result));
+    assertEquals(expected, result);
   }
 
   @Test
@@ -40,6 +41,6 @@ class FindAllAnagramsInAString_438_Test {
     final List<Integer> result = solution.findAnagrams(s, p);
 
     // then
-    assertTrue(expected.containsAll(result));
+    assertEquals(expected, result);
   }
 }
