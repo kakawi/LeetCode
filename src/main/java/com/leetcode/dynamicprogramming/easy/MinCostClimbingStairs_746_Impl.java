@@ -1,12 +1,8 @@
 package com.leetcode.dynamicprogramming.easy;
 
-public class Min_Cost_Climbing_Stairs_746 {
+public class MinCostClimbingStairs_746_Impl implements MinCostClimbingStairs_746 {
 
-  public static void main(String[] args) {
-    final Min_Cost_Climbing_Stairs_746 solution = new Min_Cost_Climbing_Stairs_746();
-    solution.minCostClimbingStairs(new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1});
-  }
-
+  @Override
   public int minCostClimbingStairs(int[] cost) {
     final int length = cost.length;
     for (int i = 2; i < length; i++) {
