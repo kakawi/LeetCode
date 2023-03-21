@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class MorrisTraversalTest {
+class TreeTraversalTest {
 
-  private final MorrisTraversal solution = new MorrisTraversalImpl();
+  private final TreeTraversal solution = new MorrisTraversal();
 
   @Test
   void inOrder() {
@@ -40,6 +40,24 @@ class MorrisTraversalTest {
 
     // when
     final List<Integer> result = solution.preOrder(root);
+
+    // then
+    assertEquals(expected, result);
+  }
+
+  @Test
+  void postOrder() {
+    // given
+    final TreeNode root = new TreeNode(1,
+        new TreeNode(2, new TreeNode(4), new TreeNode(5, null, new TreeNode(6))),
+        new TreeNode(3)
+    );
+
+    // expected
+    final List<Integer> expected = List.of(4, 6, 5, 2, 3, 1);
+
+    // when
+    final List<Integer> result = solution.postOrder(root);
 
     // then
     assertEquals(expected, result);
