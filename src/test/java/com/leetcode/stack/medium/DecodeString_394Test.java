@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class DecodeString_394Test {
 
-  private final DecodeString_394 solution = new DecodeString_394_2Stacks();
+  private final DecodeString_394 solution = new DecodeString_394_Impl();
 
   @Test
   void decodeString_example1() {
