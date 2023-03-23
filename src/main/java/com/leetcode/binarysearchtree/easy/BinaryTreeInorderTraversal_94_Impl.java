@@ -5,12 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class Binary_Tree_Inorder_Traversal_94 {
+public class BinaryTreeInorderTraversal_94_Impl implements BinaryTreeInorderTraversal_94 {
 
-  public static void main(String[] args) {
-    final Binary_Tree_Inorder_Traversal_94 solution = new Binary_Tree_Inorder_Traversal_94();
-  }
-
+  @Override
   public List<Integer> inorderTraversal(TreeNode root) {
       List<Integer> result = new ArrayList<>();
       if (root == null) {
@@ -30,5 +27,4 @@ public class Binary_Tree_Inorder_Traversal_94 {
 
       return result;
   }
-
 }
