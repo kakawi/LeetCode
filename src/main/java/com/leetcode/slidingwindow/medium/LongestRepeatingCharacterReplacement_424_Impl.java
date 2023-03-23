@@ -5,26 +5,26 @@ public class LongestRepeatingCharacterReplacement_424_Impl implements LongestRep
   @Override
   public int characterReplacement(final String s, final int k) {
     int[] frequency = new int[26];
-    int biggestFrequency = 0; // at the moment
-    int maxSubstring = 0;
+    int highestFrequency = 0; // at the moment
+    int maxStringLength = 0;
     int leftBorder = 0;
 
     for (int rightBorder = 0; rightBorder < s.length(); rightBorder++) {
       final char c = s.charAt(rightBorder);
       final int charFrequency = ++frequency[getIndex(c)];
-      biggestFrequency = Math.max(biggestFrequency, charFrequency);
+      highestFrequency = Math.max(highestFrequency, charFrequency);
 
       final int currentSubstringLength = rightBorder - leftBorder + 1;
-      final int lettersToChange = currentSubstringLength - biggestFrequency;
+      final int lettersToChange = currentSubstringLength - highestFrequency;
       if (lettersToChange > k) {
         frequency[getIndex(s.charAt(leftBorder))]--;
         leftBorder++;
       } else {
-        maxSubstring = Math.max(maxSubstring, currentSubstringLength);
+        maxStringLength = Math.max(maxStringLength, currentSubstringLength);
       }
     }
 
-    return maxSubstring;
+    return maxStringLength;
   }
 
   private static int getIndex(char c) {
