@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class BackspaceStringCompare_844Test {
 
-  private final BackspaceStringCompare_844 solution = new BackspaceStringCompare_844_Without_Stack();
+  private final BackspaceStringCompare_844 solution = new BackspaceStringCompare_844_Base();
 
   @Test
   void backspaceCompare_example1() {
