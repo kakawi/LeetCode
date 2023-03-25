@@ -14,22 +14,21 @@ public class BinaryTreeLevelOrderTraversal_102_Impl implements BinaryTreeLevelOr
    */
   @Override
   public List<List<Integer>> levelOrder(TreeNode root) {
-    final Queue<TreeNode> queue = new ArrayDeque<>();
-    List<List<Integer>> result = new ArrayList<>();
+    final List<List<Integer>> result = new ArrayList<>();
     if (root == null) {
       return result;
     }
 
+    final Queue<TreeNode> queue = new ArrayDeque<>();
     queue.add(root);
     while (!queue.isEmpty()) {
       int sizeOfTheLevel = queue.size();
-      List<Integer> currentLevel = new ArrayList<>();
-      while (sizeOfTheLevel > 0) {
+      final List<Integer> currentLevel = new ArrayList<>();
+      while (sizeOfTheLevel-- > 0) { // in this case we don't care about `sizeOfTheLevel`
         final TreeNode node = queue.poll();
+        currentLevel.add(node.val);
         if (node.left != null) queue.add(node.left);
         if (node.right != null) queue.add(node.right);
-        currentLevel.add(node.val);
-        sizeOfTheLevel--;
       }
       result.add(currentLevel);
     }
