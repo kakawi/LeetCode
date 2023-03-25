@@ -11,14 +11,12 @@ public class ClimbingStairs_70_Impl implements
 
     int first = 1;
     int second = 2;
-    int sum = 0;
-
     for (int i = 3; i <= n; i++) {
-      sum = first + second;
-      first = second;
-      second = sum;
+      int tmp = second;
+      second = first + second;
+      first = tmp;
     }
 
-    return sum;
+    return second;
   }
 }
