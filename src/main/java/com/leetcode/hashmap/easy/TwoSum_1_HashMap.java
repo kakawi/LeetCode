@@ -1,6 +1,5 @@
 package com.leetcode.hashmap.easy;
 
-import com.leetcode.hashmap.easy.TwoSum_1;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,6 +9,7 @@ public class TwoSum_1_HashMap implements TwoSum_1 {
   public int[] twoSum(final int[] nums, final int target) {
     // <Value, Index>
     final Map<Integer, Integer> map = new HashMap<>();
+
     for (int i = 0; i < nums.length; i++) {
       int currentValue = nums[i];
       int neededNumber = target - currentValue;
