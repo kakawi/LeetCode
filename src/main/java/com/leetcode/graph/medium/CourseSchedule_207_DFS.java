@@ -3,6 +3,10 @@ package com.leetcode.graph.medium;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * To answer the question we just need to make sure that the Graph of courses is DAG.
+ * Directed Acyclic Graph [DAG]
+ */
 public class CourseSchedule_207_DFS implements CourseSchedule_207 {
 
   private static final int NEVER_VISITED = 0;
@@ -12,17 +16,7 @@ public class CourseSchedule_207_DFS implements CourseSchedule_207 {
   @Override
   public boolean canFinish(int numCourses, int[][] prerequisites) {
     final List<List<Integer>> courses = createGraph(numCourses, prerequisites);
-    int[] visited = new int[numCourses];
-
-    // dfs visit each course
-    for (int course = 0; course < numCourses; course++) {
-      if (visited[course] == ALREADY_VISITED) continue;
-      if (!visitCourse(course, courses, visited)) {
-        return false;
-      }
-    }
-
-    return true;
+    return isDAG(courses);
   }
 
   private static List<List<Integer>> createGraph(final int numCourses, final int[][] prerequisites) {
@@ -37,6 +31,21 @@ public class CourseSchedule_207_DFS implements CourseSchedule_207 {
       courses.get(prerequisite[1]).add(prerequisite[0]);
     }
     return courses;
+  }
+
+  private static boolean isDAG(final List<List<Integer>> courses) {
+    final int numCourses = courses.size();
+    int[] visited = new int[numCourses];
+
+    // dfs visit each course
+    for (int course = 0; course < numCourses; course++) {
+      if (visited[course] == ALREADY_VISITED) continue;
+      if (!visitCourse(course, courses, visited)) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   private static boolean visitCourse(int course, List<List<Integer>> courses, int[] visited) {
