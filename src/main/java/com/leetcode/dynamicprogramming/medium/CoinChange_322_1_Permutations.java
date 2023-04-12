@@ -8,6 +8,8 @@ package com.leetcode.dynamicprogramming.medium;
  */
 public class CoinChange_322_1_Permutations implements CoinChange_322 {
 
+  private static final int NO_VALUE = -1;
+
   @Override
   public int coinChange(final int[] coins, int amount) {
     if (amount < 0) {
@@ -16,13 +18,15 @@ public class CoinChange_322_1_Permutations implements CoinChange_322 {
     if (amount == 0) {
       return 0;
     }
-    int result = -1;
-    for (int i = 0; i < coins.length; i++) {
-      int coin = coinChange(coins, amount - coins[i]);
-      if (coin >= 0) {
-        result = result < 0 ? coin + 1 : Math.min(result, coin + 1);
+
+    int result = NO_VALUE;
+    for (final int coin : coins) {
+      final int currentResult = coinChange(coins, amount - coin);
+      if (currentResult >= 0) {
+        result = result == NO_VALUE ? currentResult + 1 : Math.min(result, currentResult + 1);
       }
     }
+
     return result;
   }
 }

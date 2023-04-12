@@ -18,7 +18,8 @@ public class CoinChange_322_4_BFS implements CoinChange_322 {
     queue.add(0);
 
     int result = 0;
-    boolean[] visited = new boolean[amount + 1];
+    // Because we're using BFS, we do not need to store any intermediate value
+    final boolean[] visited = new boolean[amount + 1];
 
     while (!queue.isEmpty()) {
       int n = queue.size();

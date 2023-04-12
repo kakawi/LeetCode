@@ -87,4 +87,20 @@ class CoinChange_322Test {
     // then
     assertEquals(expected, result);
   }
+
+  @Test
+  void coinChange_example6() {
+    // given
+    final int[] coins = {3, 6};
+    final int amount = 14;
+
+    // expected
+    final int expected = -1;
+
+    // when
+    final int result = solution.coinChange(coins, amount);
+
+    // then
+    assertEquals(expected, result);
+  }
 }
