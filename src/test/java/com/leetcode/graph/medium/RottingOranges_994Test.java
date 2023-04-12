@@ -4,9 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-class RottingOranges_944Test {
+class RottingOranges_994Test {
 
-  private final RottingOranges_944 solution = new RottingOranges_944_BFS();
+  private final RottingOranges_994 solution = new RottingOranges_994_BFS();
 
   @Test
   void orangesRotting_example1() {

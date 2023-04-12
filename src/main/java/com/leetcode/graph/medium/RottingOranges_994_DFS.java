@@ -1,6 +1,6 @@
 package com.leetcode.graph.medium;
 
-public class RottingOranges_944_DFS implements RottingOranges_944 {
+public class RottingOranges_994_DFS implements RottingOranges_994 {
 
   // Instead of using a separate value to store results we can use Grid cells to store it
   // But we can not use 0, 1, 2 - because this is meaningful digits

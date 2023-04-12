@@ -3,7 +3,7 @@ package com.leetcode.graph.medium;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class RottingOranges_944_BFS implements RottingOranges_944 {
+public class RottingOranges_994_BFS implements RottingOranges_994 {
 
   @Override
   public int orangesRotting(int[][] grid) {
