@@ -4,26 +4,32 @@ public class InsertInterval_57_Impl implements InsertInterval_57 {
 
   @Override
   public int[][] insert(final int[][] intervals, final int[] newInterval) {
-    final int n = intervals.length;
+    final int currentLength = intervals.length;
+
     int newIntervalStart = newInterval[0];
     int newIntervalEnd = newInterval[1];
-    int indexOfStart = 0;
-    while (indexOfStart < n && newIntervalStart > intervals[indexOfStart][1]) {
-      indexOfStart++;
-    }
-    int indexOfEnd = indexOfStart;
-    while (indexOfEnd < n && newIntervalEnd >= intervals[indexOfEnd][0]) {
-      // merge intervals
-      newIntervalStart = Math.min(newIntervalStart, intervals[indexOfEnd][0]);
-      newIntervalEnd = Math.max(newIntervalEnd, intervals[indexOfEnd][1]);
-      indexOfEnd++;
+
+    // find Start index for the `newInterval`
+    int newIntervalStartIndex = 0;
+    while (newIntervalStartIndex < currentLength && newIntervalStart > intervals[newIntervalStartIndex][1]) {
+      newIntervalStartIndex++;
     }
 
-    int[][] result = new int[n - (indexOfEnd - indexOfStart) + 1][];
+    // find End index for the `newInterval` and simultaneously update Merge start and end of the interval
+    int newIntervalEndIndex = newIntervalStartIndex;
+    while (newIntervalEndIndex < currentLength && newIntervalEnd >= intervals[newIntervalEndIndex][0]) {
+      newIntervalStart = Math.min(newIntervalStart, intervals[newIntervalStartIndex][0]);
+      newIntervalEnd = Math.max(newIntervalEnd, intervals[newIntervalEndIndex][1]);
+      newIntervalEndIndex++;
+    }
 
-    System.arraycopy(intervals, 0, result, 0, indexOfStart);
-    result[indexOfStart] = new int[]{newIntervalStart, newIntervalEnd};
-    System.arraycopy(intervals, indexOfEnd, result, indexOfStart + 1, n - indexOfEnd);
+    // Create a new array with new length
+    int[][] result = new int[currentLength - (newIntervalEndIndex - newIntervalStartIndex) + 1][];
+
+    // Fill the new array
+    System.arraycopy(intervals, 0, result, 0, newIntervalStartIndex);
+    result[newIntervalStartIndex] = new int[]{newIntervalStart, newIntervalEnd};
+    System.arraycopy(intervals, newIntervalEndIndex, result, newIntervalStartIndex + 1, currentLength - newIntervalEndIndex);
 
     return result;
   }
