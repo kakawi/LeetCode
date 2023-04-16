@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class MergeIntervals_56Test {
 
-  private final MergeIntervals_56 solution = new MergeIntervals_56_Ranges();
+  private final MergeIntervals_56 solution = new MergeIntervals_56_Sort();
 
   @Test
   void merge_example1() {
