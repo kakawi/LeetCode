@@ -5,23 +5,24 @@ import com.leetcode.linkedlist.ListNode;
 public class RemoveNthNodeFromEndOfList_19_Impl implements RemoveNthNodeFromEndOfList_19 {
 
   @Override
-  public ListNode removeNthFromEnd(final ListNode head, final int n) {
-    ListNode slow = head;
-    ListNode fast = head;
-    for (int i = 1; i <= n; i++) {
-      fast = fast.next;
+  public ListNode removeNthFromEnd(final ListNode head, int n) {
+    ListNode backward = head;
+    ListNode forward = head;
+    while (n-- > 0) {
+      forward = forward.next;
     }
 
-    if (fast == null) {
+    // case when you need to remove the first element
+    if (forward == null) {
       return head.next;
     }
 
-    while (fast.next != null) {
-      fast = fast.next;
-      slow = slow.next;
+    while (forward.next != null) {
+      forward = forward.next;
+      backward = backward.next;
     }
 
-    slow.next = slow.next.next;
+    backward.next = backward.next.next;
 
     return head;
   }
