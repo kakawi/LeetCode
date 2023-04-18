@@ -42,6 +42,21 @@ class OddEvenLinkedList_328Test {
   }
 
   @Test
+  void oddEvenList_example3() {
+    // given
+    final ListNode head = ListNodeUtil.generateListOfNodes(1, 2, 3, 4, 5, 6, 7, 8);
+
+    // expected
+    final ListNode expected = ListNodeUtil.generateListOfNodes(1, 3, 5, 7, 2, 4, 6, 8);
+
+    // when
+    final ListNode result = solution.oddEvenList(head);
+
+    // then
+    assertTrue(ListNodeUtil.areIdentical(expected, result));
+  }
+
+  @Test
   void oddEvenList_null() {
     // when
     final ListNode result = solution.oddEvenList(null);
