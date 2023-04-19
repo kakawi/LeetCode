@@ -4,17 +4,14 @@ public class FindPivotIndex_724_Impl implements FindPivotIndex_724 {
 
   @Override
   public int pivotIndex(final int[] nums) {
-    if (nums.length == 1) {
-      return 0;
-    }
-    int totalSum = 0; // It is a optimizations that substitutes `prefix sum array`
+    int rightSum = 0;
     for (final int num : nums) {
-      totalSum += num;
+      rightSum += num;
     }
 
     int leftSum = 0;
     for (int i = 0; i < nums.length; i++) {
-      int rightSum = totalSum - leftSum - nums[i];
+      rightSum -= nums[i];
       if (leftSum == rightSum) {
         return i;
       }
