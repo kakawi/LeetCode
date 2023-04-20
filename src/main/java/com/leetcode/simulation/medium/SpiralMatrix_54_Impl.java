@@ -9,35 +9,40 @@ public class SpiralMatrix_54_Impl implements SpiralMatrix_54 {
   public List<Integer> spiralOrder(final int[][] matrix) {
     final List<Integer> result = new ArrayList<>();
 
-    final int rows = matrix.length;
-    final int columns = matrix[0].length;
-    final int matrixSize = rows * columns;
-
     int up = 0;
-    int down = rows - 1;
+    int bottom = matrix.length;
     int left = 0;
-    int right = columns - 1;
+    int right = matrix[0].length;
 
-    while (result.size() != matrixSize) {
-      for (int i = left; i <= right; i++) {
+    // Because matrix can be any form we have to add check after every line
+    while (true) {
+      // up
+      for (int i = left; i < right; i++) {
         result.add(matrix[up][i]);
       }
       up++;
-      for (int i = up; i <= down; i++) {
-        result.add(matrix[i][right]);
+      if (up == bottom) break;
+
+      // right
+      for (int i = up; i < bottom; i++) {
+        result.add(matrix[i][right - 1]);
       }
       right--;
+      if (right == left) break;
 
-      if (up > down) break;
-      for (int i = right; i >= left; i--) {
-        result.add(matrix[down][i]);
+      // bottom
+      for (int i = right - 1; i >= left; i--) {
+        result.add(matrix[bottom - 1][i]);
       }
-      down--;
-      if (left > right) break;
-      for (int i = down; i >= up; i--) {
+      bottom--;
+      if (bottom == up) break;
+
+      // left
+      for (int i = bottom - 1; i >= up; i--) {
         result.add(matrix[i][left]);
       }
       left++;
+      if (left == right) break;
     }
 
     return result;
