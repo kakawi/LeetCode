@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class IsSubsequence_392Test {
 
-  private final IsSubsequence_392 solution = new IsSubsequence_392_Base();
+  private final IsSubsequence_392 solution = new IsSubsequence_392_Impl();
 
   @Test
   void isSubsequence_example1() {
