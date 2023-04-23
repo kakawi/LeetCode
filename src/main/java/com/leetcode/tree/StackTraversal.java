@@ -9,9 +9,6 @@ public class StackTraversal implements TreeTraversal {
   @Override
   public List<Integer> inOrder(TreeNode root) {
     final List<Integer> result = new ArrayList<>();
-    if (root == null) {
-      return result;
-    }
 
     final Stack<TreeNode> stack = new Stack<>();
     while (!stack.isEmpty() || root != null) {
