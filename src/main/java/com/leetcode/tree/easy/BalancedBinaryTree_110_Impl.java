@@ -2,6 +2,12 @@ package com.leetcode.tree.easy;
 
 import com.leetcode.tree.TreeNode;
 
+/**
+ * Not to use an additional space to save intermediate results (memoization) we combine
+ * meaningful value with logic value:
+ * -1 is logic false
+ * [0..] is meaningful value
+ */
 public class BalancedBinaryTree_110_Impl implements BalancedBinaryTree_110 {
 
   @Override
