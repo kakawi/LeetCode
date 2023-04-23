@@ -90,6 +90,22 @@ class PathSumIII_437Test {
   }
 
   @Test
+  void pathSum_example4() {
+    // given
+    final TreeNode root = new TreeNode(0, new TreeNode(1), new TreeNode(1));
+    final int targetSum = 1;
+
+    // expected
+    final int expected = 4;
+
+    // when
+    final int result = solution.pathSum(root, targetSum);
+
+    // then
+    assertEquals(expected, result);
+  }
+
+  @Test
   void pathSum_null() {
     // given
     final int targetSum = 22;

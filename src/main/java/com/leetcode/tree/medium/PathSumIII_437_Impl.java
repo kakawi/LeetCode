@@ -9,19 +9,21 @@ public class PathSumIII_437_Impl implements PathSumIII_437 {
   @Override
   public int pathSum(TreeNode root, int sum) {
     final int[] result = new int[1];
+    // <Sum, number of times>
+    // we're using Long, because sum can exceed Integer type
     final Map<Long, Integer> prefixSum = new HashMap<>();
 
     // initial
     prefixSum.put(0L, 1);
 
-    helper(root, 0, sum, prefixSum, result);
+    findPaths(root, 0, sum, prefixSum, result);
 
     return result[0];
   }
 
-  public void helper(
+  public void findPaths(
       final TreeNode node,
-      long currSum,
+      long currentSum,
       final long target,
       final Map<Long, Integer> prefixSum,
       final int[] result
@@ -30,15 +32,18 @@ public class PathSumIII_437_Impl implements PathSumIII_437 {
       return;
     }
 
-    currSum += node.val;
+    currentSum += node.val;
 
-    result[0] += prefixSum.getOrDefault(currSum - target, 0);
-    prefixSum.merge(currSum, 1, Integer::sum);
+    final long desiredSum = currentSum - target;
+    if (prefixSum.containsKey(desiredSum)) {
+      result[0] += prefixSum.get(desiredSum);
+    }
+    prefixSum.merge(currentSum, 1, Integer::sum);
 
-    helper(node.left, currSum, target, prefixSum, result);
-    helper(node.right, currSum, target, prefixSum, result);
+    findPaths(node.left, currentSum, target, prefixSum, result);
+    findPaths(node.right, currentSum, target, prefixSum, result);
 
     // backtrack
-    prefixSum.compute(currSum, (k, value) -> value - 1);
+    prefixSum.compute(currentSum, (k, value) -> value - 1);
   }
 }
