@@ -9,18 +9,18 @@ public class PathSum_112_DFS implements PathSum_112 {
     if (root == null) {
       return false;
     }
-    return checkPath(root, 0, targetSum);
+    return checkPath(root, targetSum);
   }
 
-  private boolean checkPath(final TreeNode node, int sum, final int targetSum) {
+  private boolean checkPath(final TreeNode node, final int targetSum) {
     if (node == null) {
       return false;
     }
     if (isLeaf(node)) {
-      return sum + node.val == targetSum;
+      return node.val == targetSum;
     }
-    sum += node.val;
-    return checkPath(node.left, sum, targetSum) || checkPath(node.right, sum, targetSum);
+    return checkPath(node.left, targetSum - node.val)
+        || checkPath(node.right, targetSum - node.val);
   }
 
   private boolean isLeaf(final TreeNode node) {
