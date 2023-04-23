@@ -2,6 +2,9 @@ package com.leetcode.tree.easy;
 
 import com.leetcode.tree.TreeNode;
 
+/**
+ * The idea of this task it to find the max sum of depths of left and right subtrees.
+ */
 public class DiameterOfBinaryTree_543_Impl implements DiameterOfBinaryTree_543 {
 
   @Override
@@ -16,11 +19,12 @@ public class DiameterOfBinaryTree_543_Impl implements DiameterOfBinaryTree_543 {
       return 0;
     }
 
-    int leftDiameter = dfs(root.left, maxDiameter);
-    int rightDiameter = dfs(root.right, maxDiameter);
+    final int leftLength = dfs(root.left, maxDiameter);
+    final int rightLength = dfs(root.right, maxDiameter);
 
-    maxDiameter[0] = Math.max(maxDiameter[0], leftDiameter + rightDiameter);
+    final int currentDiameter = leftLength + rightLength;
+    maxDiameter[0] = Math.max(maxDiameter[0], currentDiameter);
 
-    return 1 + Math.max(leftDiameter, rightDiameter);
+    return Math.max(leftLength, rightLength) + 1;
   }
 }
