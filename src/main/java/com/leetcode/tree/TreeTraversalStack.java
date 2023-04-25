@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class StackTraversal implements TreeTraversal {
+public class TreeTraversalStack implements TreeTraversal {
 
   @Override
   public List<Integer> inOrder(TreeNode root) {
@@ -17,7 +17,7 @@ public class StackTraversal implements TreeTraversal {
         root = root.left;
       }
       root = stack.pop();
-      result.add(root.val);
+      result.add(root.val); // Do logic
       root = root.right;
     }
 
@@ -34,7 +34,7 @@ public class StackTraversal implements TreeTraversal {
     final Stack<TreeNode> stack = new Stack<>();
     while (!stack.isEmpty() || root != null) {
       while (root != null) {
-        result.add(root.val);
+        result.add(root.val); // Do logic
         stack.add(root);
         root = root.left;
       }

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class TreeTraversalTest {
 
-  private final TreeTraversal solution = new StackTraversal();
+  private final TreeTraversal solution = new TreeTraversalRecursion();
 
   @Test
   void inOrder() {

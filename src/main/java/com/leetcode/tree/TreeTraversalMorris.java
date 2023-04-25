@@ -10,7 +10,7 @@ import java.util.List;
  * Time: ~O(N)
  * Space: O(1)
  */
-public class MorrisTraversal implements TreeTraversal {
+public class TreeTraversalMorris implements TreeTraversal {
 
   @Override
   public List<Integer> inOrder(TreeNode root) {
