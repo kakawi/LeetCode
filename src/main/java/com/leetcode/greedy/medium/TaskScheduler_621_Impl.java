@@ -4,26 +4,27 @@ public class TaskScheduler_621_Impl implements TaskScheduler_621 {
 
   @Override
   public int leastInterval(final char[] tasks, final int n) {
-    int[] counter = new int[26];
-    int max = 0;
-    int maxCount = 0;
+    final int[] counter = new int[26];
+    int biggestTask = 0;
+    int numberOfTheBiggestTask = 0;
+    // we find `biggestTask` and `numberOfTheBiggestTask` simultaneously
     for (char task : tasks) {
       counter[task - 'A']++;
-      if (max == counter[task - 'A']) {
-        maxCount++;
-      } else if (max < counter[task - 'A']) {
-        max = counter[task - 'A'];
-        maxCount = 1;
+      if (biggestTask == counter[task - 'A']) {
+        numberOfTheBiggestTask++;
+      } else if (biggestTask < counter[task - 'A']) {
+        biggestTask = counter[task - 'A'];
+        numberOfTheBiggestTask = 1;
       }
     }
 
-    int partCount = max - 1;
-    int emptySlotsInOnePart = n - (maxCount - 1);
-    int emptySlots = partCount * emptySlotsInOnePart; // we ignore negative
+    int countOfParts = biggestTask - 1;
+    int emptySlotsInOnePart = n - (numberOfTheBiggestTask - 1); // fill `parts` with the biggest tasks. It can be negative
+    int totalEmptySlots = countOfParts * emptySlotsInOnePart; // calculate total empty slots
 
-    int availableTasks = tasks.length - max * maxCount; // always positive
+    int remainTasks = tasks.length - biggestTask * numberOfTheBiggestTask; // we already put biggestTasks. Calculate how many tasks left
 
-    int idles = Math.max(0, emptySlots - availableTasks);
+    int idles = Math.max(0, totalEmptySlots - remainTasks);
 
     return tasks.length + idles;
   }
