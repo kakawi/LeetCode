@@ -9,25 +9,26 @@ public class ValidateBinarySearchTree_98_Impl implements ValidateBinarySearchTre
    * InOrder traversal + check prevValue
    */
   @Override
-  public boolean isValidBST(TreeNode root) {
+  public boolean isValidBST(final TreeNode root) {
     if (root == null) {
       return true;
     }
-
+    final Stack<TreeNode> stack = new Stack<>();
     long prevValue = Long.MIN_VALUE; // Integer.MIN_VALUE is not enough
 
-    Stack<TreeNode> stack = new Stack<>();
-    while (!stack.isEmpty() || root != null) {
-      while (root != null) {
-        stack.push(root);
-        root = root.left;
+    TreeNode currentNode = root;
+    while (!stack.isEmpty() || currentNode != null) {
+      while (currentNode != null) {
+        stack.push(currentNode);
+        currentNode = currentNode.left;
       }
-      root = stack.pop();
-      if (prevValue >= root.val) {
+      currentNode = stack.pop();
+      // the validation
+      if (prevValue >= currentNode.val) {
         return false;
       }
-      prevValue = root.val;
-      root = root.right;
+      prevValue = currentNode.val;
+      currentNode = currentNode.right;
     }
 
     return true;
