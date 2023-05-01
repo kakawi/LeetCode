@@ -1,7 +1,6 @@
 package com.leetcode.tree.medium;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import com.leetcode.backtracking.medium.ListOfListOfElementsMatcher;
 import com.leetcode.tree.TreeNode;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -29,7 +28,7 @@ class PathSumII_113Test {
     final List<List<Integer>> result = solution.pathSum(root, targetSum);
 
     // then
-    assertEquals(expected, result);
+    ListOfListOfElementsMatcher.checkResult(expected, result);
   }
 
   @Test
@@ -45,7 +44,7 @@ class PathSumII_113Test {
     final List<List<Integer>> result = solution.pathSum(root, targetSum);
 
     // then
-    assertEquals(expected, result);
+    ListOfListOfElementsMatcher.checkResult(expected, result);
   }
 
   @Test
@@ -61,7 +60,7 @@ class PathSumII_113Test {
     final List<List<Integer>> result = solution.pathSum(root, targetSum);
 
     // then
-    assertEquals(expected, result);
+    ListOfListOfElementsMatcher.checkResult(expected, result);
   }
 
   @Test
@@ -76,7 +75,7 @@ class PathSumII_113Test {
     final List<List<Integer>> result = solution.pathSum(null, targetSum);
 
     // then
-    assertEquals(expected, result);
+    ListOfListOfElementsMatcher.checkResult(expected, result);
   }
 
   @Test
@@ -99,6 +98,6 @@ class PathSumII_113Test {
     final List<List<Integer>> result = solution.pathSum(root, targetSum);
 
     // then
-    assertEquals(expected, result);
+    ListOfListOfElementsMatcher.checkResult(expected, result);
   }
 }
