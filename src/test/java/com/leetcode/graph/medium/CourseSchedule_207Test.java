@@ -34,4 +34,17 @@ class CourseSchedule_207Test {
     // then
     assertFalse(result);
   }
+
+  @Test
+  void canFinish_example3() {
+    // given
+    final int numCourses = 2;
+    final int[][] prerequisites = {{0, 1}};
+
+    // when
+    final boolean result = solution.canFinish(numCourses, prerequisites);
+
+    // then
+    assertTrue(result);
+  }
 }
