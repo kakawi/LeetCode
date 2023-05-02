@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 class CourseScheduleII_210Test {
 
-  private final CourseScheduleII_210 solution = new CourseScheduleII_210_Kahn();
+  private final CourseScheduleII_210 solution = new CourseScheduleII_210_Repeat();
 
   @Test
   void findOrder_example1() {
@@ -55,7 +55,7 @@ class CourseScheduleII_210Test {
   void findOrder_example3() {
     // given
     final int numCourses = 1;
-    final int[][] prerequisites = {{}};
+    final int[][] prerequisites = {};
 
     // expected
     final int[] expected = new int[]{0};
