@@ -20,6 +20,7 @@ public class PacificAtlanticWaterFlow_417_BFS implements PacificAtlanticWaterFlo
     final Queue<int[]> pacificQueue = new ArrayDeque<>();
     final Queue<int[]> atlanticQueue = new ArrayDeque<>();
 
+    // Prefix first Atlantic and Pacific lines
     for (int i = 0; i < m; i++) {
       pacificQueue.offer(new int[]{i, 0});
       pacific[i][0] = true;
@@ -34,6 +35,7 @@ public class PacificAtlanticWaterFlow_417_BFS implements PacificAtlanticWaterFlo
       atlantic[m - 1][i] = true;
     }
 
+    // Fill `pacific` and `atlantic` arrays
     bfs(heights, pacificQueue, pacific);
     bfs(heights, atlanticQueue, atlantic);
 
@@ -57,14 +59,10 @@ public class PacificAtlanticWaterFlow_417_BFS implements PacificAtlanticWaterFlo
       for (int[] dir : dirs) {
         int x = pos[0] + dir[0];
         int y = pos[1] + dir[1];
-        if (
-            (x < 0 || x >= m)
-                || (y < 0 || y >= n)
-                || visited[x][y]
-                || heights[x][y] < heights[pos[0]][pos[1]]
-        ) {
-          continue;
-        }
+        if (x < 0 || x == m) continue;
+        if (y < 0 || y == n) continue;
+        if (visited[x][y]) continue;
+        if (heights[x][y] < heights[pos[0]][pos[1]]) continue;
 
         visited[x][y] = true;
         queue.offer(new int[]{x, y});
