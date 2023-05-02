@@ -14,23 +14,23 @@ public class SearchInRotatedSortedArray_33_Impl implements SearchInRotatedSorted
         return mid;
       }
 
-      // check if Mid is in the left sorted subarray
-      if (nums[left] <= nums[mid]) {
-        // check if Target is in the left sorted subarray
-        if (target <= nums[mid] && target >= nums[left]) {
-          // standard approach
+      // check if `mid` belongs to the left or the right sorted sub array
+      if (nums[left] <= nums[mid]) { // == for the case when `left == mid`
+        // I know that left side is sorted
+        // So if `target` is inside the left side, then use the standard approach
+        if (nums[left] <= target && target < nums[mid]) {
           right = mid - 1;
         } else {
-          // just move left border
+          // otherwise
           left = mid + 1;
         }
       } else {
-        // check if Target in the right sorted subarray
-        if (target >= nums[mid] && target <= nums[right]) {
-          // standard approach
+        // I know that the right side is sorted
+        // So if `target` is inside the right side, then use the standard approach
+        if (nums[mid] < target && target <= nums[right]) {
           left = mid + 1;
         } else {
-          // just move right border
+          // otherwise
           right = mid - 1;
         }
       }

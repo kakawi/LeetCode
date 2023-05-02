@@ -55,4 +55,20 @@ class SearchInRotatedSortedArray_33Test {
     // then
     assertEquals(expected, result);
   }
+
+  @Test
+  void search_example4() {
+    // given
+    final int[] nums = {3, 1};
+    final int target = 1;
+
+    // expected
+    final int expected = 1;
+
+    // when
+    final int result = solution.search(nums, target);
+
+    // then
+    assertEquals(expected, result);
+  }
 }
