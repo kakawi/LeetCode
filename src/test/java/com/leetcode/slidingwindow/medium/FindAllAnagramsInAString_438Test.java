@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class FindAllAnagramsInAString_438_Test {
+class FindAllAnagramsInAString_438Test {
 
   private final FindAllAnagramsInAString_438 solution = new FindAllAnagramsInAString_438_Base();
 
@@ -33,6 +33,22 @@ class FindAllAnagramsInAString_438_Test {
 
     // expected
     final List<Integer> expected = List.of(0, 1, 2);
+
+    // when
+    final List<Integer> result = solution.findAnagrams(s, p);
+
+    // then
+    assertEquals(expected, result);
+  }
+
+  @Test
+  void findAnagrams_example3() {
+    // given
+    final String s = "aaaaaaaaaa";
+    final String p = "aaaaaaaaaaaaa";
+
+    // expected
+    final List<Integer> expected = List.of();
 
     // when
     final List<Integer> result = solution.findAnagrams(s, p);
