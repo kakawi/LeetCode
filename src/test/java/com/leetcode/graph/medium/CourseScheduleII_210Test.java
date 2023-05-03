@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 class CourseScheduleII_210Test {
 
-  private final CourseScheduleII_210 solution = new CourseScheduleII_210_Repeat();
+  private final CourseScheduleII_210 solution = new CourseScheduleII_210_Kahn();
 
   @Test
   void findOrder_example1() {
