@@ -7,21 +7,22 @@ public class LongestSubstringWithoutRepeatingCharacters_3_Impl implements
 
   @Override
   public int lengthOfLongestSubstring(final String s) {
-    final int[] indexOfLetter = new int[256];
-    Arrays.fill(indexOfLetter, -1);
+    final int[] lastIndexOfLetter = new int[256];
+    Arrays.fill(lastIndexOfLetter, -1);
     int maxLength = 0;
     int currentLength = 0;
-    int left = -1;
+    int left = 0;
     for (int i = 0; i < s.length(); i++) {
       final char c = s.charAt(i);
-      final int lastIndex = indexOfLetter[c];
+      final int lastIndex = lastIndexOfLetter[c];
       if (lastIndex >= left) {
-        currentLength = (i - lastIndex) - 1;
         left = lastIndex + 1;
+        currentLength = i - left + 1;
+      } else {
+        currentLength++;
+        maxLength = Math.max(maxLength, currentLength);
       }
-      indexOfLetter[c] = i;
-      currentLength++;
-      maxLength = Math.max(maxLength, currentLength);
+      lastIndexOfLetter[c] = i;
     }
 
     return maxLength;
