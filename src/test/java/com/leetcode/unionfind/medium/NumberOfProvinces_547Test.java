@@ -2,8 +2,6 @@ package com.leetcode.unionfind.medium;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.leetcode.unionfind.medium.NumberOfProvinces_547;
-import com.leetcode.unionfind.medium.NumberOfProvinces_547_Impl;
 import org.junit.jupiter.api.Test;
 
 class NumberOfProvinces_547Test {
