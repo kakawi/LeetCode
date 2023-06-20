@@ -28,10 +28,10 @@ public class BalancedBinaryTree_110_Impl implements BalancedBinaryTree_110 {
     if (leftDepth == -1 || rightDepth == -1) {
       return -1;
     }
-    if (Math.abs(leftDepth - rightDepth) <= 1) {
-      return Math.max(leftDepth, rightDepth) + 1;
+    if (Math.abs(leftDepth - rightDepth) > 1) {
+      return -1;
     }
 
-    return -1;
+    return 1 + Math.max(leftDepth, rightDepth);
   }
 }
