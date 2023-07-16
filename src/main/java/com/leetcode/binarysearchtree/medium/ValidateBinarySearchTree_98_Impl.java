@@ -10,9 +10,6 @@ public class ValidateBinarySearchTree_98_Impl implements ValidateBinarySearchTre
    */
   @Override
   public boolean isValidBST(final TreeNode root) {
-    if (root == null) {
-      return true;
-    }
     final Stack<TreeNode> stack = new Stack<>();
     long prevValue = Long.MIN_VALUE; // Integer.MIN_VALUE is not enough
 
