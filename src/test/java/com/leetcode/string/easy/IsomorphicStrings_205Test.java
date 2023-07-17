@@ -47,4 +47,17 @@ class IsomorphicStrings_205Test {
     // then
     assertTrue(result);
   }
+
+  @Test
+  void isIsomorphic_example4() {
+    // given
+    final String s = "ab";
+    final String t = "aa";
+
+    // when
+    final boolean result = solution.isIsomorphic(s, t);
+
+    // then
+    assertFalse(result);
+  }
 }
