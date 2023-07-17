@@ -33,4 +33,17 @@ class IsSubsequence_392Test {
     // then
     assertFalse(result);
   }
+
+  @Test
+  void isSubsequence_example3() {
+    // given
+    final String source = "";
+    final String target = "ahbgdc";
+
+    // when
+    final boolean result = solution.isSubsequence(source, target);
+
+    // then
+    assertTrue(result);
+  }
 }

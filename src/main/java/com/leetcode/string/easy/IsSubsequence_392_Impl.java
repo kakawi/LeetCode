@@ -4,10 +4,15 @@ public class IsSubsequence_392_Impl implements IsSubsequence_392 {
 
   @Override
   public boolean isSubsequence(final String s, final String t) {
-    int j = 0;
-    for (final char c : t.toCharArray()) {
-      if (s.charAt(j) == c) j++;
+    int i = 0;
+    for (char targetChar : t.toCharArray()) {
+      if (i == s.length()) {
+        return true;
+      }
+      if (s.charAt(i) == targetChar) {
+        i++;
+      }
     }
-    return j == s.length();
+    return i == s.length();
   }
 }
