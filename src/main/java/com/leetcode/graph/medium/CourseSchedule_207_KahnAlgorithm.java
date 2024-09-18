@@ -2,12 +2,8 @@ package com.leetcode.graph.medium;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Set;
 
 /**
  * Ref: https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/

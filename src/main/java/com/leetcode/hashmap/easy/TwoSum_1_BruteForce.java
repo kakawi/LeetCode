@@ -1,7 +1,5 @@
 package com.leetcode.hashmap.easy;
 
-import com.leetcode.hashmap.easy.TwoSum_1;
-
 public class TwoSum_1_BruteForce implements TwoSum_1 {
 
   @Override

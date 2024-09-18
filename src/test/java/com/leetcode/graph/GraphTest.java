@@ -104,9 +104,7 @@ public class GraphTest {
   }
 
   public static boolean assertTopologicalSort(final List<int[]> possibleSorts, final int[] actual) {
-    int i = 0;
     for (final int[] possibleSort : possibleSorts) {
-      i++;
       try {
         assertArrayEquals(possibleSort, actual);
         return true;

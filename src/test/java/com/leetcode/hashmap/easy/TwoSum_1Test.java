@@ -2,8 +2,6 @@ package com.leetcode.hashmap.easy;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-import com.leetcode.hashmap.easy.TwoSum_1;
-import com.leetcode.hashmap.easy.TwoSum_1_HashMap;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 

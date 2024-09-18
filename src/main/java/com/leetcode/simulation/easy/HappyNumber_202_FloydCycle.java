@@ -1,8 +1,5 @@
 package com.leetcode.simulation.easy;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class HappyNumber_202_FloydCycle implements HappyNumber_202 {
 
   @Override

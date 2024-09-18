@@ -1,7 +1,5 @@
 package com.leetcode.design.medium;
 
-import com.leetcode.tree.TreeNode;
-
 import java.util.Optional;
 
 public class ImplementTrie_208_Impl implements ImplementTrie_208 {
