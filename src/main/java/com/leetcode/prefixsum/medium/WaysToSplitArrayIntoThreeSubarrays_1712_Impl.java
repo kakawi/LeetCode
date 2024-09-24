@@ -19,12 +19,12 @@ public class WaysToSplitArrayIntoThreeSubarrays_1712_Impl implements
       if (3 * leftSum > totalSum) { // Optimization
         break;
       }
-      leftBorder = Math.max(leftBorder, i + 1);
+      leftBorder = Math.max(leftBorder, i + 1); // optimization
       // find the closest `LeftBorder` that satisfies condition (leftSum < midSum)
       while (leftBorder < nums.length - 1 && leftSum > nums[leftBorder] - leftSum) {
         leftBorder++;
       }
-      rightBorder = Math.max(rightBorder, leftBorder);
+      rightBorder = Math.max(rightBorder, leftBorder); // optimization
       // Find the farthest `RightBorder` that satisfies condition (midSum <= rightSum)
       while (rightBorder < nums.length - 1
           && nums[rightBorder] - leftSum <= totalSum - nums[rightBorder]) {
