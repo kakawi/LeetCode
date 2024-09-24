@@ -21,6 +21,7 @@ public class ContinuousSubarraySum_523_Impl implements ContinuousSubarraySum_523
 
       final int remainder = sum % k;
       if (map.containsKey(remainder)) {
+        // are there at least 2 elements?
         if (i - map.get(remainder) >= 1) {
           return true;
         }

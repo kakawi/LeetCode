@@ -99,4 +99,17 @@ class ContinuousSubarraySum_523Test {
     // then
     assertFalse(result);
   }
+
+  @Test
+  void checkSubarraySum_example8() {
+    // given
+    final int[] nums = {0, 0};
+    final int k = 1;
+
+    // when
+    final boolean result = solution.checkSubarraySum(nums, k);
+
+    // then
+    assertTrue(result);
+  }
 }
