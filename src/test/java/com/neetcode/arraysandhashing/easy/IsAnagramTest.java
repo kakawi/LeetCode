@@ -5,17 +5,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-class ContainsDuplicateTest {
-
-  private final ContainsDuplicate solution = new ContainsDuplicate_Impl();
+public class IsAnagramTest {
+  private final IsAnagram solution = new IsAnagram_Impl();
 
   @Test
   void example1() {
     // given
-    final int[] nums = { 1, 2, 3, 3 };
+    final String s = "racecar";
+    final String t = "carrace";
 
     // when
-    final boolean result = solution.hasDuplicate(nums);
+    final boolean result = solution.isAnagram(s, t);
 
     // then
     assertTrue(result);
@@ -24,10 +24,11 @@ class ContainsDuplicateTest {
   @Test
   void example2() {
     // given
-    final int[] nums = { 1, 2, 3, 4 };
+    final String s = "jar";
+    final String t = "jam";
 
     // when
-    final Boolean result = solution.hasDuplicate(nums);
+    final boolean result = solution.isAnagram(s, t);
 
     // then
     assertFalse(result);
