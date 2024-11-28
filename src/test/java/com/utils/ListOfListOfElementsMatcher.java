@@ -1,4 +1,4 @@
-package com.leetcode.backtracking.medium;
+package com.utils;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;

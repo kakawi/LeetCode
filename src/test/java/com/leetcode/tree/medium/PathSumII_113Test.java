@@ -1,7 +1,8 @@
 package com.leetcode.tree.medium;
 
-import com.leetcode.backtracking.medium.ListOfListOfElementsMatcher;
 import com.leetcode.tree.TreeNode;
+import com.utils.ListOfListOfElementsMatcher;
+
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
