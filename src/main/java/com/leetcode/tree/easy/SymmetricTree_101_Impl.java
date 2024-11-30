@@ -1,6 +1,6 @@
 package com.leetcode.tree.easy;
 
-import com.leetcode.tree.TreeNode;
+import com.common.TreeNode;
 
 public class SymmetricTree_101_Impl implements SymmetricTree_101 {
 

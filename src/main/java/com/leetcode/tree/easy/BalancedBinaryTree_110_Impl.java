@@ -1,6 +1,6 @@
 package com.leetcode.tree.easy;
 
-import com.leetcode.tree.TreeNode;
+import com.common.TreeNode;
 
 /**
  * Not to use an additional space to save intermediate results (memoization) we combine

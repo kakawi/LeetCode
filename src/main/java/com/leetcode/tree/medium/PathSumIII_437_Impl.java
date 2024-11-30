@@ -1,8 +1,9 @@
 package com.leetcode.tree.medium;
 
-import com.leetcode.tree.TreeNode;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.common.TreeNode;
 
 public class PathSumIII_437_Impl implements PathSumIII_437 {
 

@@ -1,7 +1,8 @@
 package com.leetcode.tree.medium;
 
-import com.leetcode.tree.TreeNode;
 import java.util.List;
+
+import com.common.TreeNode;
 
 /**
  * Ref: <a href="https://leetcode.com/problems/binary-tree-right-side-view">199. Binary Tree Right Side View</a>

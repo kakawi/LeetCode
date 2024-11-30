@@ -1,9 +1,10 @@
 package com.leetcode.tree.medium;
 
-import com.leetcode.tree.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+
+import com.common.TreeNode;
 
 public class PathSumII_113_Impl implements PathSumII_113 {
 

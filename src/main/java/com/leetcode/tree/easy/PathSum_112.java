@@ -1,6 +1,6 @@
 package com.leetcode.tree.easy;
 
-import com.leetcode.tree.TreeNode;
+import com.common.TreeNode;
 
 /**
  * Ref: <a href="https://leetcode.com/problems/path-sum">112. Path Sum</a>

@@ -1,6 +1,6 @@
 package com.leetcode.tree.easy;
 
-import com.leetcode.tree.TreeNode;
+import com.common.TreeNode;
 
 /**
  * The idea of this task it to find the max sum of depths of left and right subtrees.

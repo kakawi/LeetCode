@@ -1,4 +1,4 @@
-package com.leetcode.tree;
+package com.common;
 
 import java.util.Objects;
 

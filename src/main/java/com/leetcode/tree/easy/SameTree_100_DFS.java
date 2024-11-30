@@ -1,6 +1,6 @@
 package com.leetcode.tree.easy;
 
-import com.leetcode.tree.TreeNode;
+import com.common.TreeNode;
 
 public class SameTree_100_DFS implements SameTree_100 {
 

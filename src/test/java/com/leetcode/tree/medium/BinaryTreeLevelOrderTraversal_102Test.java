@@ -2,9 +2,10 @@ package com.leetcode.tree.medium;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.leetcode.tree.TreeNode;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+
+import com.common.TreeNode;
 
 class BinaryTreeLevelOrderTraversal_102Test {
 

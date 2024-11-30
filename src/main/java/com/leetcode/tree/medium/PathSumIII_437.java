@@ -1,6 +1,6 @@
 package com.leetcode.tree.medium;
 
-import com.leetcode.tree.TreeNode;
+import com.common.TreeNode;
 
 /**
  * Ref: <a href="https://leetcode.com/problems/path-sum-iii">437. Path Sum III</a>

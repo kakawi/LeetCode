@@ -1,8 +1,9 @@
 package com.leetcode.tree.easy;
 
-import com.leetcode.tree.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
+
+import com.common.TreeNode;
 
 public class PathSum_112_BFS implements PathSum_112 {
 

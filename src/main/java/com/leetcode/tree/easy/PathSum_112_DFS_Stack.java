@@ -1,8 +1,8 @@
 package com.leetcode.tree.easy;
 
-import com.leetcode.tree.TreeNode;
-
 import java.util.Stack;
+
+import com.common.TreeNode;
 
 public class PathSum_112_DFS_Stack implements PathSum_112 {
   @Override

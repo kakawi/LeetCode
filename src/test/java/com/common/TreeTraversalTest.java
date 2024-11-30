@@ -1,9 +1,13 @@
-package com.leetcode.tree;
+package com.common;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+
+import com.common.TreeNode;
+import com.common.TreeTraversal;
+import com.common.TreeTraversalRecursion;
 
 class TreeTraversalTest {
 

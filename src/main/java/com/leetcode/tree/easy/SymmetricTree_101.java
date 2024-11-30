@@ -1,6 +1,6 @@
 package com.leetcode.tree.easy;
 
-import com.leetcode.tree.TreeNode;
+import com.common.TreeNode;
 
 /**
  * Ref: <a href="https://leetcode.com/problems/symmetric-tree">101. Symmetric Tree</a>

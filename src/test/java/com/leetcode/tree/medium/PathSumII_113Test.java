@@ -1,6 +1,6 @@
 package com.leetcode.tree.medium;
 
-import com.leetcode.tree.TreeNode;
+import com.common.TreeNode;
 import com.utils.ListOfListOfElementsMatcher;
 
 import java.util.List;

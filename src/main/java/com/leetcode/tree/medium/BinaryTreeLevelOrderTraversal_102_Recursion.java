@@ -1,8 +1,9 @@
 package com.leetcode.tree.medium;
 
-import com.leetcode.tree.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.common.TreeNode;
 
 public class BinaryTreeLevelOrderTraversal_102_Recursion implements BinaryTreeLevelOrderTraversal_102 {
 

@@ -2,8 +2,9 @@ package com.leetcode.tree.medium;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.leetcode.tree.TreeNode;
 import org.junit.jupiter.api.Test;
+
+import com.common.TreeNode;
 
 class PathSumIII_437Test {
 

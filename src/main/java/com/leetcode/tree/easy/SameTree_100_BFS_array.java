@@ -1,7 +1,8 @@
 package com.leetcode.tree.easy;
 
-import com.leetcode.tree.TreeNode;
 import java.util.Stack;
+
+import com.common.TreeNode;
 
 public class SameTree_100_BFS_array implements SameTree_100 {
 

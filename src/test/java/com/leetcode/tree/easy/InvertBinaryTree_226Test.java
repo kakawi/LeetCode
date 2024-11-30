@@ -3,8 +3,9 @@ package com.leetcode.tree.easy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import com.leetcode.tree.TreeNode;
 import org.junit.jupiter.api.Test;
+
+import com.common.TreeNode;
 
 class InvertBinaryTree_226Test {
 

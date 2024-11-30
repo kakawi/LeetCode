@@ -1,6 +1,6 @@
 package com.leetcode.tree.easy;
 
-import com.leetcode.tree.TreeNode;
+import com.common.TreeNode;
 
 public class InvertBinaryTree_226_Impl implements InvertBinaryTree_226 {
 

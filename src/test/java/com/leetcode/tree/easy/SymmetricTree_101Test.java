@@ -3,8 +3,9 @@ package com.leetcode.tree.easy;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.leetcode.tree.TreeNode;
 import org.junit.jupiter.api.Test;
+
+import com.common.TreeNode;
 
 class SymmetricTree_101Test {
 

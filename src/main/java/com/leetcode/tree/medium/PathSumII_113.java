@@ -1,7 +1,8 @@
 package com.leetcode.tree.medium;
 
-import com.leetcode.tree.TreeNode;
 import java.util.List;
+
+import com.common.TreeNode;
 
 /**
  * Ref: <a href="https://leetcode.com/problems/path-sum-ii">113. Path Sum II</a>

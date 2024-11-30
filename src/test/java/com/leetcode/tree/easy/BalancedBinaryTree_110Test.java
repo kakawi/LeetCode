@@ -2,8 +2,9 @@ package com.leetcode.tree.easy;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.leetcode.tree.TreeNode;
 import org.junit.jupiter.api.Test;
+
+import com.common.TreeNode;
 
 class BalancedBinaryTree_110Test {
 
