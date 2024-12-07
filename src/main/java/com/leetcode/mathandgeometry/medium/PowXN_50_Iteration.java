@@ -14,7 +14,7 @@ public class PowXN_50_Iteration implements PowXN_50 {
     }
 
     double result = 1;
-    int power = Math.abs(n);
+    long power = Math.abs((long) n);
 
     while (power > 0) {
       // odd

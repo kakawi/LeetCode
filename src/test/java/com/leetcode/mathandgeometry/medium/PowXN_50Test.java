@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class PowXN_50Test {
-  private final PowXN_50 solution = new PowXN_50_Recursion();
+  private final PowXN_50 solution = new PowXN_50_Iteration();
 
   private static final double EPSILON = 0.00001;
 
@@ -49,6 +49,22 @@ public class PowXN_50Test {
 
     // expected
     double expected = 0.25;
+
+    // when
+    double result = solution.myPow(x, n);
+
+    // then
+    assertEquals(expected, result, EPSILON);
+  }
+
+  @Test
+  void example4() {
+    // given
+    double x = 2;
+    int n = -2147483648;
+
+    // expected
+    double expected = 0;
 
     // when
     double result = solution.myPow(x, n);
