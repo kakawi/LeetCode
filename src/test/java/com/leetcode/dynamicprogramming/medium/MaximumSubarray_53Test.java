@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class MaximumSubarray_53Test {
-  private final MaximumSubarray_53 solution = new MaximumSubarray_53_DivideAndConquer();
+  private final MaximumSubarray_53 solution = new MaximumSubarray_53_Kadane();
 
   @Test
   void example1() {
