@@ -19,79 +19,67 @@ class Point {
 }
 
 class Rectangle {
+  private final Point leftTopCorner;
+  private final boolean[][] erasedElements; // true if element was erased
   private final char symbol;
-  private final boolean[][] erased;
-  private final Point initCoordinates;
 
-  public Rectangle(char symbol, Point initCoordinates, Point rightBottomPoint) {
+  public Rectangle(char symbol, int leftX, int topY, int rightX, int bottomY) {
     this.symbol = symbol;
-    this.initCoordinates = initCoordinates;
-    int top = initCoordinates.y;
-    int bottom = rightBottomPoint.y;
-    int left = initCoordinates.x;
-    int right = rightBottomPoint.x;
-
-    int height = bottom - top + 1;
-    int width = right - left + 1;
-    erased = new boolean[height][width];
+    this.leftTopCorner = new Point(leftX, topY);
+    this.erasedElements = new boolean[bottomY - topY + 1][rightX - leftX + 1];
   }
 
   public boolean doesExist(Point point) {
-    if (point.x < initCoordinates.x || point.y < initCoordinates.y) {
+    int x = point.x - leftTopCorner.x;
+    int y = point.y - leftTopCorner.y;
+    if (x < 0 || x >= erasedElements[0].length || y < 0 || y >= erasedElements.length) {
       return false;
     }
-    int row = point.y - initCoordinates.y;
-    int column = point.x - initCoordinates.x;
-    return erased[row][column] == false;
+    return !erasedElements[y][x];
   }
 
-  public void erase(Point topLeft, Point bottomRight) {
-    if (bottomRight.x < initCoordinates.x || bottomRight.y < initCoordinates.y) {
-      return;
-    }
-    int left = topLeft.x < initCoordinates.x ? 0 : topLeft.x - initCoordinates.x;
-    int top = topLeft.y < initCoordinates.y ? 0 : topLeft.y - initCoordinates.y;
-
-    int bottom = bottomRight.y - initCoordinates.y;
-    int right = bottomRight.x - initCoordinates.x;
-    if (bottom >= erased.length) {
-      bottom = erased.length - 1;
-    }
-    if (right >= erased[0].length) {
-      right = erased[0].length;
-    }
-
-    for (int i = top; i <= bottom; i++) {
-      for (int j = left; j <= right; j++) {
-        erased[i][j] = true;
-      }
-    }
+  private Point rightCorner() {
+    return Point.of(leftTopCorner.x + erasedElements[0].length - 1, leftTopCorner.y + erasedElements.length - 1);
   }
 
-  public void dragAndDrop(Point select, Point release) {
-    int left = release.x - select.x;
-    int bottom = release.y - select.y;
-
-    initCoordinates.x += left;
-    initCoordinates.y += bottom;
+  public void dragAndDrop(Point from, Point to) {
+    int xMovement = to.x - from.x;
+    int yMovement = to.y - from.y;
+    leftTopCorner.x += xMovement;
+    leftTopCorner.y += yMovement;
   }
 
   public void fill(char[][] board) {
-    int columns = erased[0].length;
-    int left = initCoordinates.x;
-    int top = initCoordinates.y;
-    for (int row = 0; row < erased.length; row++) {
-      if (top + row >= board.length) {
-        break;
+    for (int yRelative = 0; yRelative < erasedElements.length; yRelative++) {
+      for (int xRelative = 0; xRelative < erasedElements[0].length; xRelative++) {
+        if (!erasedElements[yRelative][xRelative]) {
+          int y = leftTopCorner.y + yRelative;
+          int x = leftTopCorner.x + xRelative;
+          if (x < 0 || x >= board[0].length || y < 0 || y >= board.length) {
+            continue;
+          }
+
+          board[leftTopCorner.y + yRelative][leftTopCorner.x + xRelative] = symbol;
+        }
       }
-      for (int column = 0; column < columns; column++) {
-        if (left + column >= board[0].length) {
-          break;
-        }
-        if (erased[row][column]) {
-          continue;
-        }
-        board[top + row][left + column] = symbol;
+    }
+  }
+
+  public void eraseArea(Point from, Point to) {
+    if (leftTopCorner.x > to.x || leftTopCorner.y > to.y) {
+      return;
+    }
+    if (rightCorner().x < from.x || rightCorner().y < from.y) {
+      return;
+    }
+
+    int fromXRelative = Math.max(from.x - leftTopCorner.x, 0);
+    int fromYRelative = Math.max(from.y - leftTopCorner.y, 0);
+    int toXRelative = Math.min(to.x - leftTopCorner.x, erasedElements[0].length - 1);
+    int toYRelative = Math.min(to.y - leftTopCorner.y, erasedElements.length - 1);
+    for (int y = fromYRelative; y <= toYRelative; y++) {
+      for (int x = fromXRelative; x <= toXRelative; x++) {
+        erasedElements[y][x] = true;
       }
     }
   }
@@ -99,28 +87,28 @@ class Rectangle {
 
 /**
  * Thoughts:
- * - I have to save all rectanges as separate layer, because it can be moved and
+ * - I have to save all rectangles as separate layer, because it can be moved and
  * brought to the front
  * - I choose that I would calculate what rectangle is first, I will print all
  * of them
  * Questions:
- * - Out of borders rectanges?
+ * - Out of borders rectangles?
  * - Impossible coordinates?
  * - What to do if it was moved out of border?
- * - Limits of rectanges?
+ * - Limits of rectangles?
  * - Do I need to cover with Unit Tests?
  */
 public class B {
   private final LinkedList<Rectangle> rectangles = new LinkedList<>();
 
   public void drawRectangle(char c, int leftX, int topY, int rightX, int bottomY) {
-    var rectangle = new Rectangle(c, Point.of(leftX, topY), Point.of(rightX, bottomY));
+    var rectangle = new Rectangle(c, leftX, topY, rightX, bottomY);
     rectangles.offerFirst(rectangle);
   }
 
   public void eraseErea(int leftX, int topY, int rightX, int bottomY) {
     for (Rectangle rectangle : rectangles) {
-      rectangle.erase(Point.of(leftX, topY), Point.of(rightX, bottomY));
+      rectangle.eraseArea(Point.of(leftX, topY), Point.of(rightX, bottomY));
     }
   }
 
